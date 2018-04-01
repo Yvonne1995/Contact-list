@@ -99,5 +99,12 @@ class TestContact(unittest.TestCase):
 
         self.assertTrue(contact_exists)
 
+    # def test_display_all_contacts(self):
+    #     '''
+    #     method taht returns a list of all contacts saved
+    #     '''
+    #
+    #     self.assertEqual(Contact.display_contacts(),COntacts.contact.list)
+
 if __name__ == '__main__':
     unittest.main()
