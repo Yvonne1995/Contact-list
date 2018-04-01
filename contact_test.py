@@ -1,6 +1,6 @@
 import unittest # Importing the unittest mode
 from contact import Contact # Importing the contact Class
-
+import paperclip
 
 class TestContact(unittest.TestCase):
 
@@ -99,12 +99,22 @@ class TestContact(unittest.TestCase):
 
         self.assertTrue(contact_exists)
 
-    # def test_display_all_contacts(self):
-    #     '''
-    #     method taht returns a list of all contacts saved
-    #     '''
-    #
-    #     self.assertEqual(Contact.display_contacts(),COntacts.contact.list)
+    def test_display_all_contacts(self):
+        '''
+        method that returns a list of all contacts saved
+        '''
+
+        self.assertEqual(Contact.display_contacts(),Contact.contact_list)
+
+    def test_copy_email(self):
+        '''
+        Test to confirm that we are copying the email address from a found contact
+        '''
+
+        self.new_contact.save_contact()
+        Contact.copy_email("0712345678")
+
+        self.assertEqual(self.new_contact.email,paperclip.paste())
 
 if __name__ == '__main__':
     unittest.main()

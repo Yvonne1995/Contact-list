@@ -1,24 +1,4 @@
-# class Contact:
-#     """
-#     Class that generates new instances of contacts
-#     """
-#     contact_list = [] # Empty contact list
-#     def __init__(self,first_name,last_name,number,email):
-#         # '''
-#         # __init__method that helps us define properties for our objects.
-#         #
-#         # Arg:
-#         #     first_name: New contact first name.
-#         #     last_name: New contact last name.
-#         #     number: New contact phone number.
-#         #     email : New contact email address.
-#         # '''
-#         # docstring removed for simplicity
-#
-#         self.first_name = first_name
-#         self.last_name = last_name
-#         self.number = number
-#         self.email = email
+import paperclip
 
 class Contact:
     """
@@ -35,6 +15,7 @@ class Contact:
         self.last_name = last_name
         self.number = number
         self.email = email
+        self.contact = Contact
 
     contact_list = [] #Empty contact list
 #Init contact list
@@ -69,20 +50,6 @@ class Contact:
                 return contact
 
 
-    # @classmethod
-    # def contact_exist(cls, number):
-    #     '''
-    #     Method that checks if a contact exists from the contact list.
-    #     Args:
-    #         number: Phone number to search if it exists
-    #     Returns :
-    #         Boolean: True or false depending if the contact exists
-    #     '''
-    #     for contact in cls.contact_list:
-    #         if contact.number == number:
-    #                 return True
-    #
-    #     return False
     @classmethod
     def contact_exist(cls,number):
         '''
@@ -97,3 +64,15 @@ class Contact:
                 return True
 
         return False
+
+    @classmethod
+    def display_contacts(cls):
+        '''
+        method that returns contact list
+        '''
+        return cls.contact_list
+
+    @classmethod
+    def copy_email(cls,number):
+        contact_found = Contact.find_by_number(number)
+        paperclip.copy(contact_found.email)
