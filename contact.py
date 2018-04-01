@@ -67,3 +67,33 @@ class Contact:
         for contact in cls.contact_list:
             if contact.number == number:
                 return contact
+
+
+    @classmethod
+    def contact_exist(cls, number):
+        '''
+        Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for contact in cls.contact_list:
+            if contact.number == number:
+                    return True
+
+        return False
+    # @classmethod
+    # def contact_exist(cls,number):
+    #     '''
+    #     Method that checks if a contact exists from the cntact list.
+    #     Arg:
+    #         number: Phone number to search if it exists
+    #     Returns:
+    #         Boolean: True or false depending if the contact exists
+    #     '''
+    #     for contact in cls.contact_list:
+    #         if contact.number == number:
+    #             return True
+    #
+    #         return False
