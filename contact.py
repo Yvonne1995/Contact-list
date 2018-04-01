@@ -35,3 +35,12 @@ class Contact:
         self.last_name = last_name
         self.number = number
         self.email = email
+
+    contact_list = []
+
+    def save_contact(self):
+        '''
+        save_contact method saves contact objects int contact_list
+        '''
+
+        Contact.contact_list.append(self)
